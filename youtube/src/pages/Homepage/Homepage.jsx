@@ -7,14 +7,14 @@ export default function Homepage() {
     },[])
     const getvideos=()=>{
       axios.get(
-        "https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&regionCode=US&videoCategoryId=10&maxResults=5&key=AIzaSyBLoKbMB1usbrfYuArKOoBRIQqGuWASHo8"
+        `https://www.googleapis.com/youtube/v3/videos?part=snippet,contentDetails,statistics&chart=mostPopular&regionCode=US&videoCategoryId=10&maxResults=5&key=${process.env.REACT_APP_API_KEY}`
       ).then((res)=>{
 setItems(res.data.items)
       }).catch((err)=>{
         console.log(err)
       });  
     }
-    console.log(items)
+    // console.log(items)
   return (
     <div>
       {items.length >= 1
